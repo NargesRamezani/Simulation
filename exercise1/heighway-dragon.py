@@ -34,7 +34,7 @@ def dragon(x1, y1, x2, y2, n, left=True):
     
     return left_part + right_part
 
-n = 20
+n = 11
 points = dragon(x1, y1, x2, y2, n, left=True)
 
 
