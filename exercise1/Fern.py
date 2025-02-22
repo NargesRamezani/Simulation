@@ -69,10 +69,10 @@ def f4(a):
     ])
     
     x_new = 0.69
-    y_new =(1.83/10) * a[1]  # مقیاس کردن ارتفاع
+    y_new =(1.83/10) * a[1]  
     
     new_point = np.array([x_new, y_new])
-    rotated_point = rotation_matrix @ new_point  # اعمال چرخش
+    rotated_point = rotation_matrix @ new_point  
     
     return rotated_point
 
