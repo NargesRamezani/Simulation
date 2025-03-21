@@ -5,12 +5,12 @@ import math
 import matplotlib.colors as mcolors
 
 
-L= 100
-#L =int(input ( 'please enter L ' ))
+
+L =int(input ( 'please enter L ' ))
 grid = np.zeros( (L , L) , dtype=int)
 
 o = [0 , 1]
-p = [0.59 , 0.41]
+p = [0.4 , 0.6]
 color = 2
 
 whole = np.zeros((L , L+2) , dtype=int)
@@ -42,7 +42,7 @@ for i in range(L):
             rndm.remove(a)
 
 #print(color_matrix)
-
+m={}
 
 for i in range(L):
     for j in range(L):
@@ -82,13 +82,23 @@ for i in range(L):
                                             color_matrix[ny, nx] = min_color
                                             stack.append((ny, nx)) 
 
+for i in range(L):
+    for j in range (L):
+
+        if color_matrix[ i , j+1 ] != 0:
+            
+            key=int(color_matrix[i , j+1])
+            if key in m:
+                m[key] +=1
+            else:
+                m[key]=1
 
 
 
 #print(whole)
 #print(check)
-#print(color_matrix)
-
+print(color_matrix)
+#print(m)
 
 
 if np.any(color_matrix[:, -1] == 1):
@@ -107,7 +117,4 @@ custom_cmap = mcolors.ListedColormap(colors)
 plt.figure(figsize=(6, 6))
 plt.imshow(color_matrix_without_first_column, cmap=custom_cmap, vmin=0, vmax=np.max(color_matrix_without_first_column), interpolation='none')
 
-
-plt.title('Color Matrix Visualization (Zero as White)')
 plt.show()
-

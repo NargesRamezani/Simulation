@@ -3,12 +3,12 @@ import random
 import numpy as np
 import math
 
-L= 12
-#L =int(input ( 'please enter L ' ))
+
+L =int(input ( 'please enter L ' ))
 grid = np.zeros( (L , L) , dtype=int)
 
 o = [0 , 1]
-p = [0.8 , 0.2]
+p = [0.4 , 0.6]
 
 
 whole=np.zeros((L , L+1) , dtype=int)
@@ -40,17 +40,14 @@ for i in range(L):
                             break
 
 
-
-'''print(whole)
-print(check)'''
+print(whole)
+print(check)
 
 if np.any(check[:, -1] == 1):
     print(1)
 
 else:
     print(0)
-
-
 
 
 

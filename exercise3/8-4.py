@@ -2,9 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 from scipy.optimize import curve_fit
+from matplotlib.colors import ListedColormap
+
 
 L = 10
-P = [0.5, 0.55, 0.59]
+P = [0.5 , 0.55 , 0.59]
 max_cells = 400
 stop_position = (L - 1, L - 1)
 
@@ -26,7 +28,7 @@ result = {}
 for p in P:
     min_S = []
     min_radius = []
-    for _ in range(150):
+    for _ in range(1):
         grid = np.zeros((L, L), dtype=int)
         grid[L//2, L//2] = 1
         where = [(L//2, L//2)]
@@ -86,12 +88,17 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-'''cmap = ListedColormap(["white", "pink"])  
-plt.imshow(final_grid, cmap=cmap, origin="upper")
-plt.grid(False)
-plt.show()'''
+'''
+final_grid = np.where(grid == -1, 0, grid)
 
-'''cmap = ListedColormap(["white", "pink"])  
+
+cmap = ListedColormap(["white", "pink"])  
 plt.imshow(final_grid, cmap=cmap, origin="upper")
 plt.grid(False)
-plt.show()'''
+plt.show()
+
+cmap = ListedColormap(["white", "pink"])  
+plt.imshow(final_grid, cmap=cmap, origin="upper")
+plt.grid(False)
+plt.show()
+'''
