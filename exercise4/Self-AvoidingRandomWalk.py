@@ -5,11 +5,10 @@ import matplotlib.pyplot as plt
 p = 0.5
 q = 1 - p  
 l = 1  
-N = 100   
-iteration = 1  
+N = 150
+iteration = 10000
 
-position = np.zeros((N, 2), dtype=int)
-side_memory = []  
+
 
 def random_walk(x, y):
     direction = random.choice(["x", "y"])
@@ -26,30 +25,47 @@ def random_walk(x, y):
 
     return [x, y]
 
-x, y = 0, 0  
-for step in range(N):
-    
-    neighbors = [[x + l, y], [x - l, y], [x, y + l], [x, y - l]]
-    if all(neighbor in side_memory for neighbor in neighbors):  
-        print(f"Stopped at step {step} due to dead end.")  
-        break  
+result = np.zeros(iteration)
+for _ in range(iteration):
+    position = np.zeros((N, 2), dtype=int)
+    side_memory = []  
+    x, y = 0, 0  
+    for step in range(N):
+        
+        neighbors = [[x + l, y], [x - l, y], [x, y + l], [x, y - l]]
+        if all(neighbor in side_memory for neighbor in neighbors):  
+            #print(f"Stopped at step {step} due to dead end.")
+            result[_] = step
+            break 
+        
 
-    new_position = random_walk(x, y)  
-    while new_position in side_memory:  
         new_position = random_walk(x, y)  
-    
-    position[step] = new_position
-    side_memory.append(new_position) 
-    x, y = new_position  
+        while new_position in side_memory:  
+            new_position = random_walk(x, y)  
+        
+        position[step] = new_position
+        side_memory.append(new_position) 
+        x, y = new_position  
 
 
-valid_steps = len(side_memory)
-position = np.array(side_memory)[:valid_steps]  
+    valid_steps = len(side_memory)
+    position = np.array(side_memory)[:valid_steps]  
+
+#print(f"Total steps: {valid_steps}")
+
+plt.hist(result, bins=30, density=True, alpha=0.6, color='b', edgecolor='black')
 
 
-plt.plot(position[:, 0], position[:, 1], marker="o", linestyle="-")
+plt.title('Histogram of SAW length')
+plt.xlabel('Final Position')
+plt.ylabel('Probability Density')
+plt.legend()
+plt.show()
+
+'''plt.plot(position[:, 0], position[:, 1], marker="o", linestyle="-")
 plt.xlabel("X Position")
 plt.ylabel("Y Position")
 plt.title("Self-Avoiding Random Walk with Dead End Check")
 plt.grid()
 plt.show()
+'''

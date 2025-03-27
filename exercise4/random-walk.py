@@ -3,8 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
-
-
 p = 0.6
 q = 1 - p
 l = 1
@@ -28,7 +26,6 @@ variance = np.var(result)
 
 print ('theory mean: ' , theory_mean , ' mean: ' , mean)
 print ('theory variance: ' , theory_variance , ' variance: ' , variance)
-
 #print(result)
 
 plt.hist(result, bins=30, density=True, alpha=0.6, color='b', edgecolor='black')

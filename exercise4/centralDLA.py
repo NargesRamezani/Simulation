@@ -3,27 +3,26 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-#for circular random boundary condition run first part and for square condition run second part
+#Run the first part for circular boundary conditions and the second part for square boundary conditions.
 p = 0.5
 l = 1
-grid_size = 100
-num_particles = 700
-
-
-x_min, x_max = -200, grid_size + 500
-y_min, y_max = -200, grid_size + 500
+grid_size = 300
+num_particles = 2000
+x_min, x_max = -700, grid_size + 700
+y_min, y_max = -700, grid_size + 700
 
 grid = np.zeros((grid_size, grid_size), dtype=int)
 grid[grid_size//2, grid_size//2] = 1  
 
 for i in range(1, num_particles + 1):
 
+    #circular
     r = grid_size
     theta = random.uniform(0 , 2*np.pi)
     x , y = int(r*np.cos(theta)) , int(r*np.sin(theta))
 
 
-    
+    #square
     '''random_direction= random.choice(["0", "1" , "2" , "3"])
     if random_direction == "0":
         x, y = 0 , random.randint(0, grid_size-1)
@@ -36,7 +35,6 @@ for i in range(1, num_particles + 1):
 
     
     while True:
-        
         if x < x_min or x >= x_max or y < y_min or y >= y_max:
             break  
         
