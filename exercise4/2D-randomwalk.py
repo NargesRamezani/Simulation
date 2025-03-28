@@ -30,7 +30,7 @@ r_squared_avg /= iterations
 
 plt.figure(figsize=(8, 6))
 plt.plot(range(N), r_squared_avg, label="Simulation ⟨r²⟩")
-plt.plot(range(N), 2*np.arange(N), linestyle="--", label="Theory (2t)", color="red")
+plt.plot(range(N), 2*np.arange(N), linestyle="--", label="Theory (2dDt) , d=2 , D =0.5", color="red")
 plt.xlabel("Number of Steps (t)")
 plt.ylabel("⟨r²⟩")
 plt.legend()

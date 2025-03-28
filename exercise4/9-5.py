@@ -21,7 +21,7 @@ def count_self_avoiding_walks(N, x=0, y=0, visited=None):
     return count
 
 
-max_N = 5 
+max_N = 15 
 saw = [count_self_avoiding_walks(N) for N in range(1, max_N + 1)]
 
 free_walk = [4**N for N in range(1, max_N + 1)]

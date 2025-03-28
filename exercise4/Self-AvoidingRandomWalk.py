@@ -6,7 +6,7 @@ p = 0.5
 q = 1 - p  
 l = 1  
 N = 150
-iteration = 10000
+iteration = 20000
 
 
 
@@ -61,8 +61,8 @@ plt.xlabel('Final Position')
 plt.ylabel('Probability Density')
 plt.legend()
 plt.show()
-
-'''plt.plot(position[:, 0], position[:, 1], marker="o", linestyle="-")
+'''
+plt.plot(position[:, 0], position[:, 1], marker="o", linestyle="-")
 plt.xlabel("X Position")
 plt.ylabel("Y Position")
 plt.title("Self-Avoiding Random Walk with Dead End Check")

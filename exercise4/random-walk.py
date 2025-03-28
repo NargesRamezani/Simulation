@@ -3,11 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import norm 
 
-p = 0.6
+p = 0.2
 q = 1 - p
 l = 1
-N=10000
-iteration = 500
+N=500
+iteration = 10000
 result = np.zeros(iteration)
 
 for i in range(iteration):
