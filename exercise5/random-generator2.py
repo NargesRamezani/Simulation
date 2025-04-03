@@ -18,4 +18,5 @@ for i in range(500000):
 #print(result)
 #print(before_four)
 plt.hist(before_four, bins=10, density=True, alpha=0.55, color='purple', edgecolor='black')
+plt.title(f'distribution of numbers before 4 for N = {500000}')
 plt.show()
