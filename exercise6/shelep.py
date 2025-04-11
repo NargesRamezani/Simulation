@@ -30,7 +30,7 @@ for i in N:
         difference.append(float(d))
     final_difference.append(np.mean(difference))
 
-
+print(np.mean(result))
 plt.plot(N, final_difference)
 plt.xlabel("Number of Samples (N)")
 plt.ylabel("Error (|I - Exact Value|)")

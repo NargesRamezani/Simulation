@@ -1,27 +1,33 @@
 import random
 import numpy as np
-import matplotlib.pyplot as plt
 
-R = 2
+R = 10
 a, b = -R, R
-N = 1000
-rho_0 = 5
+N = 1000000
+rho_0 = 1
+rho_max = rho_0
 
-p = 0
-m = 0
+mass = 0
+moment_z = 0
+
 for _ in range(N):
-    x = random.uniform(a , b)
+    x = random.uniform(a, b)
     y = random.uniform(a, b)
     z = random.uniform(a, b)
-    rho = random.uniform(0, rho_0) 
-    f_R = np.sqrt(x**2 + y**2 + z**2)
-    rho_z = ((rho_0 / (4 * R)) * z + (3/4) * rho_0)*z
-    M = (rho_0 / (4 * R)) * z + (3/4) * rho_0
-    if f_R <= R and rho <= rho_z :
-        p+=1
-    if f_R <= R and rho <= M:
-        m+=1
+    if x**2 + y**2 + z**2 > R**2:
+        continue
 
-I = (b - a)**3 *(p/N)
-J = (b - a)**3 *(m/N)
-print(I/J)
+    rho_rand = random.uniform(0, rho_max)
+    rho_z = (rho_0 / (4 * R)) * z + (3 / 4) * rho_0
+
+    if rho_rand <= rho_z:
+        mass += rho_z
+        moment_z += rho_z * z
+
+volume = (b - a)**3
+estimated_mass = (volume / N) * mass
+estimated_moment_z = (volume / N) * moment_z
+
+z_cm = (estimated_moment_z / estimated_mass)/R
+
+print(f"Center of mass (z): {z_cm:.4f} R")
