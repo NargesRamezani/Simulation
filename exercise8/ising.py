@@ -1,13 +1,18 @@
+import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import random
 import math
 
 
-L = 20
+L = 50
 kBT = 1
-J_values = np.linspace(0.1, 2.0, 8)
-N = 5000
+J_values = np.linspace(0, 2.0, 20)
+N = 50000
 plot_interval = 1000
 
 def get_neighbors(s, i, j, L):
@@ -19,7 +24,7 @@ def get_neighbors(s, i, j, L):
 
 def calculate_deltaE(s, i, j, L, J):
     neighbors = get_neighbors(s, i, j, L)
-    return 2 * J * s[i, j] * sum(neighbors)
+    return -2 * J * s[i, j] * sum(neighbors)
 
 def calculate_total_energy(s, L, J):
 
@@ -34,6 +39,7 @@ def calculate_magnetization(s):
     return np.abs(np.mean(s))
 
 final_magnetizations = []
+magnet=[]
 for J in J_values:
 
     s = np.random.choice([-1, 1], size=(L, L))
@@ -53,8 +59,11 @@ for J in J_values:
         if deltaE <= 0 or random.random() < math.exp(-deltaE / kBT):
             s[i, j] *= -1
             total_energy += deltaE
+            magnet.append(calculate_magnetization(s))
 
-    final_magnetizations.append(calculate_magnetization(s))
+    
+    
+    final_magnetizations.append(calculate_magnetization(magnet))
 
     
     '''data['steps'].append(step)
