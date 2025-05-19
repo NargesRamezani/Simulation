@@ -48,8 +48,8 @@ plt.title('Logistic Map Bifurcation Diagram (r = 0 to 1)', fontsize=16)
 plt.grid(True, alpha=0.3)
 plt.show()
 
-'''
-def chaotic_r(r, x_01=0.5, x_02 = 0.5001, N=500 , threshold=0.01):
+
+def chaotic_r(r, x_01 = 0.5, x_02 = 0.5001, N = 500 , threshold =0.01):
 
     chaotic_R = []
 
@@ -57,8 +57,8 @@ def chaotic_r(r, x_01=0.5, x_02 = 0.5001, N=500 , threshold=0.01):
         x1, x2 = x_01, x_02
         diff = 0
         for j in range(N):
-            x1 = 4 * R * x1 * (1 - x1)
-            x2 = 4 * R * x2 * (1 - x2)
+            x1 = 4*R*x1 * (1 - x1)
+            x2 = 4*R* x2 *(1 - x2)
             current_diff = abs(x1 - x2)
             if current_diff > diff:
                 diff = current_diff
@@ -72,5 +72,4 @@ r = np.linspace(0.7, 1.0, 300)
 chaotic_r_values = chaotic_r(r)
 
 print("r: ")
-print(chaotic_r_values[0], "...")  
-'''
+print(chaotic_r_values[0])  

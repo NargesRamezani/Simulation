@@ -39,33 +39,36 @@ energy = kinetic_energy + potential_energy
 plt.figure(figsize=(8,8))
 
 #theta vs time
-plt.subplot(1, 3, 1)
+plt.subplot(2, 2, 1)
 plt.plot(t, theta)
 plt.xlabel('Time (s)')
 plt.ylabel('θ (rad)')
 plt.title('Angle vs Time')
+plt.grid(True)
 
 #omega vs time
-plt.subplot(1, 3, 2)
+plt.subplot(2, 2, 2)
 plt.plot(t, omega)
 plt.xlabel('Time (s)')
 plt.ylabel('ω (rad/s)')
 plt.title('Angular Velocity vs Time')
+plt.grid(True)
 
 #phase diagram
-plt.subplot(1, 3, 3)
+plt.subplot(2, 2, 3)
 plt.plot(theta, omega)
 plt.xlabel('θ (rad)')
 plt.ylabel('ω (rad/s)')
 plt.title('Phase Space Diagram')
 plt.grid(True)
 
-plt.tight_layout()
-plt.show()
-
+#energy
+plt.subplot(2, 2, 4)
 plt.plot(t, energy)
 plt.xlabel('Time (s)')
 plt.ylabel('Total Energy (J)')
 plt.title('Energy Conservation')
 plt.grid(True)
+
+plt.tight_layout()
 plt.show()
