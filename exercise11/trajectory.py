@@ -54,7 +54,7 @@ class MolecularSystem:
                     neighbor[j].append(i)
         return neighbor
 
-    def potential_per_particle(self):
+    def potential(self):
         r_c = self.r_c
         u_shift = 4 * ((1 / r_c) ** 12 - (1 / r_c) ** 6)
         N = len(self.positions)
