@@ -152,3 +152,57 @@ plt.ylabel('Energy')
 plt.legend()
 plt.title('Energy Conservation')
 plt.show()
+
+
+# Pressure and temperature calculation (from step 20000 onwards)
+'''start_step = 20000
+P_ideal = 0.0
+P_virial = 0.0
+T_avg = 0.0
+count = 0
+
+for i in range(start_step, M):
+    # Calculate temperature (reduced units)
+    T_current = (2 * E_K[i]) / (2 * N)  # 2D system
+    T_avg += T_current
+    
+    # Ideal gas term
+    P_ideal += (N * T_current) / (L**2)
+    
+    # Virial term
+    virial = 0.0
+    for k in range(N):
+        for l in system.neighbors[k]:
+            if l > k:
+                dr = R[k] - R[l]
+                dr -= L * np.round(dr / L)
+                r_ij = np.linalg.norm(dr)
+                if r_ij < r_cut:
+                    sr6 = (sigma / r_ij)**6
+                    f_mag = 24 * (2 * sr6**2 - sr6) / r_ij
+                    virial += r_ij * f_mag
+    P_virial += virial / (2 * L**2)
+    count += 1
+
+# Averages
+T_avg /= count
+P_ideal /= count
+P_virial /= count
+P_total = P_ideal + P_virial
+
+# Convert to real units (Argon)
+epsilon = 1.65e-21  # J
+sigma = 3.4e-10  # m
+m_argon = 39.95 * 1.6605e-27  # kg
+
+# Temperature conversion
+T_real = T_avg * epsilon / 1.380649e-23  # K
+
+# Pressure conversion
+P_real = P_total * epsilon / sigma**2  # Pa
+
+print(f"\nResults (averaged from step {start_step}):")
+print(f"Reduced Temperature: {T_avg:.4f}")
+print(f"Real Temperature: {T_real:.2f} K")
+print(f"Reduced Pressure: {P_total:.4f}")
+print(f"Real Pressure: {P_real:.2e} Pa")'''
