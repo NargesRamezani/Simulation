@@ -46,7 +46,7 @@ def koch(x, y, x1, y1, n):
 
 x, y = 0, 0
 x1, y1 = 3, 0
-n = 8
+n = 2
 
 
 points = koch(x, y, x1, y1, n)

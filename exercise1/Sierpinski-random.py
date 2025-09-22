@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import random
+import math
 
 def f1 (x,y):
     x=x/2
@@ -22,9 +23,9 @@ points=[]
 
 
 
-for _ in range(10000):
+for _ in range(30000):
     x= random.uniform(0, 2)
-    y=random.uniform(0, 2)
+    y=random.uniform(0, math.sqrt(3))
     
     for _ in range(20):
         func=random.choice(functions)
@@ -37,4 +38,5 @@ plt.scatter(x_value, y_value, s=0.1, color='purple')
 plt.xlim(0, 2)
 plt.ylim(0, 2)
 plt.gca().set_aspect('equal')
+plt.title(f" (n={30000})")
 plt.show()

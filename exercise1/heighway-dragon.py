@@ -34,7 +34,7 @@ def dragon(x1, y1, x2, y2, n, left=True):
     
     return left_part + right_part
 
-n = 11
+n = 3
 points = dragon(x1, y1, x2, y2, n, left=True)
 
 
@@ -48,8 +48,8 @@ right_x, right_y = zip(*right_points)
 
 
 plt.figure(figsize=(8, 8))
-plt.plot(left_x, left_y, color="blue", linestyle="-", label="Left Part")
-plt.plot(right_x, right_y, color="red", linestyle="-", label="Right Part")
+plt.plot(left_x, left_y, color="blue", linestyle="-")
+plt.plot(right_x, right_y, color="red", linestyle="-")
 plt.axis('equal')
 plt.title(f"Dragon Curve (n={n})")
 plt.legend()

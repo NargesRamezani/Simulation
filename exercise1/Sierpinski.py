@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import numpy as np
 
 
 x1 , y1 = 0 ,0
 x2 , y2 = 2 , 0
-x3 , y3 = 1 , 2
-n=6
+x3 , y3 = 1 , np.sqrt(3)
+n=2
 
 def ser (x1 , y1 , x2 , y2 ,x3 , y3 , n):
     if n==0: 

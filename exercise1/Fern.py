@@ -80,11 +80,11 @@ def f4(a):
 functions = [f1, f2, f3, f4]
 prob = [0.85, 0.07, 0.07, 0.01]
 
-x, y = random.uniform(0, 2), random.uniform(0, 4)
+x, y = random.uniform(0, 4), random.uniform(0, 4)
 points = []
 
 
-for _ in range(10000):
+for _ in range(5000):
     
     for _ in range(20):
         func = np.random.choice(functions, p=prob)
@@ -100,4 +100,5 @@ plt.scatter(x_vals, y_vals, s=0.1, color='green', alpha=0.6, label="Fern")
 plt.xlim(-0.5, 2.5)
 plt.ylim(-0.5, 4.5)
 plt.gca().set_aspect('equal')
+plt.title(f" (n={5000})")
 plt.show()

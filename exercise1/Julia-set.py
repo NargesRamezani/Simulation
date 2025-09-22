@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-c = -0.4 + 0.6j  
+c = -0.8 + 0.16j  
 
 width, height = 1000, 1000  
 iterations = 300  
@@ -21,4 +21,5 @@ for i in range(iterations):
 plt.figure(figsize=(8, 8))
 plt.imshow(result, cmap="inferno", extent=[-2, 2, -2, 2])
 plt.axis("off")
+plt.title(f" (n={c})")
 plt.show()

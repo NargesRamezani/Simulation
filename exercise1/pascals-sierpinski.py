@@ -30,7 +30,7 @@ def display_pascals_triangle(triangle):
     plt.show()
 
 
-n = 135
+n = 512
 
 triangle = generate_pascals_triangle(n)
 display_pascals_triangle(triangle)
